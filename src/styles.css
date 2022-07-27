@@ -147,3 +147,7 @@ h4 {
   padding-top: 50px;
   margin: 0;
 }
+
+.link-github a {
+  font-weight: bold;
+}
