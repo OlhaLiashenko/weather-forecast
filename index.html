@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🌞Weather Forecast</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="src/styles.css" />
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="search-section">
+        <form class="search-forms" id="search-form">
+          <input
+            type="text"
+            placeholder="enter city, country"
+            class="searchbar"
+            id="search"
+          />
+          <button type="submit" value="GO" class="button" id="searchedCity" />GO</button>
+          <button type="submit" value="GO" class="button" id="current-location" />CURRENT</button>
+        </form>
+      </div>
+      <div class="panel-section">
+        <h2 class="city" id="city">Lviv, UA</h2>
+        <div class="weather">
+          <div class="group">
+            <h3 id="date">Friday 23:54</h3>
+            <h3>Clear Sky</h3>
+          </div>
+          <div class="group">
+            <h3>Wind: 3 mph</h3>
+            <h3>Humidity 50%</h3>
+          </div>
+          <div class="panel">
+            <h1 class="temperature">
+              <i class="bi bi-brightness-high"></i>
+              <span id="currentTemp">24</span>
+              <a href="" class="celsius" id="celsius"> &deg;C</a>
+              <span class="divider">|</span>
+              <a href="" class="fahrenheit" id="fahrenheit"> &deg;F</a>
+            </h1>
+          </div>
+          <div class="forecast">
+            <div class="row">
+              <div class="col">
+                <h3>SAT</h3>
+                <h2>22</h2>
+                <h4>02</h4>
+              </div>
+              <div class="col">
+                <h3>SUN</h3>
+                <h2>23</h2>
+                <h4>03</h4>
+              </div>
+              <div class="col">
+                <h3>MON</h3>
+                <h2>25</h2>
+                <h4>04</h4>
+              </div>
+              <div class="col">
+                <h3>TUE</h3>
+                <h2>29</h2>
+                <h4>05</h4>
+              </div>
+              <div class="col">
+                <h3>WED</h3>
+                <h2>26</h2>
+                <h4>06</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./src/index.js"></script>
+  </body>
+</html>
