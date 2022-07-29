@@ -1,14 +1,15 @@
-function formatDate(date) {
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let hours = date.getHours();
 
   if (hours < 10) {
-    hours = "0".concat(hours);
+    hours = `0${hours}`;
   }
 
   let minutes = date.getMinutes();
 
   if (minutes < 10) {
-    minutes = "0".concat(minutes);
+    minutes = `0${minutes}`;
   }
 
   let currentDay = date.getDay();
@@ -22,7 +23,7 @@ function formatDate(date) {
     "Saturday",
   ];
   let day = dayList[currentDay];
-  return "".concat(day, " ").concat(hours, ":").concat(minutes);
+  return `${day} ${hours}:${minutes}`;
 }
 let currentDate = document.querySelector("#date");
 let currentTime = new Date();
