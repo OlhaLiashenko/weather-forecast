@@ -151,3 +151,7 @@ h4 {
 .link-github a {
   font-weight: bold;
 }
+
+.description {
+  text-transform: capitalize;
+}
