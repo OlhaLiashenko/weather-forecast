@@ -35,20 +35,21 @@ h4 {
 
 .searchbar {
   text-align: left;
-  width: 600px;
+  width: 550px;
   border-bottom: solid thin white;
   background: transparent;
 }
 
 ::-webkit-input-placeholder {
   color: white;
+  padding-left: 10px;
 }
 
 .button {
-  width: 60px;
+  width: 100px;
   background-color: #2196f3;
   font-weight: bold;
-  padding-left: 30px;
+  margin-top: 60px;
 }
 
 .panel-section {
