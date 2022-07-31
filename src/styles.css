@@ -38,11 +38,11 @@ h4 {
   width: 550px;
   border-bottom: solid thin white;
   background: transparent;
+  padding: 0 15px;
 }
 
 ::-webkit-input-placeholder {
   color: white;
-  padding-left: 10px;
 }
 
 .button {
