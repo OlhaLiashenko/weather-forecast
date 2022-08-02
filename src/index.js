@@ -34,6 +34,7 @@ function displayTemperature(response) {
   document.querySelector("#currentTemp").innerHTML = Math.round(
     response.data.main.temp
   );
+  // celsiusTemperature = response.data.main.temp;
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
@@ -80,9 +81,10 @@ searchCity("Lviv");
 function fahrenheitChange(event) {
   event.preventDefault();
   let currentTemperature = document.querySelector("#currentTemp");
-  //   let fahrenheitTemp = Math.round(currentTemperature * 1.8 + 32);
-  //   currentTemperature.innerHTML = `${fahrenheitTemp}`;
-  currentTemperature.innerHTML = 62;
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  let fahrenheitTemp = Math.round(celsiusTemperature * 1.8 + 32);
+  currentTemperature.innerHTML = `${fahrenheitTemp}`;
 }
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", fahrenheitChange);
@@ -90,9 +92,13 @@ fahrenheit.addEventListener("click", fahrenheitChange);
 function celsiusChange(event) {
   event.preventDefault();
   let currentTemperature = document.querySelector("#currentTemp");
-  //   let celsiusTemp = Math.round(currentTemperature - 32 / 1.8);
-  //   currentTemperature.innerHTML = `${celsiusTemp}`;
-  currentTemperature.innerHTML = 17;
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
+  currentTemperature.innerHTML = Math.round(celsiusTemperature);
+  // let celsiusTemp = Math.round(currentTemperature - 32 / 1.8);
+  // currentTemperature.innerHTML = `${celsiusTemp}`;
 }
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", celsiusChange);
+
+// let celsiusTemperature = null;

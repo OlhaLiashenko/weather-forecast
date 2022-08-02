@@ -123,6 +123,7 @@ a:hover {
   text-transform: uppercase;
   width: 100%;
   padding-top: 50px;
+  font-size: 21px;
 }
 
 .col {
@@ -130,8 +131,7 @@ a:hover {
 }
 
 .forecast h3,
-h4,
-span {
+h4 {
   font-size: 24px;
   opacity: 0.7;
 }
