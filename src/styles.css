@@ -124,21 +124,28 @@ a:hover {
   width: 100%;
   padding-top: 50px;
   font-size: 21px;
+  text-align: center;
 }
 
-.col {
+.col-2 {
   text-align: center;
 }
 
 .forecast h3,
 h4 {
-  font-size: 24px;
+  font-size: 18px;
   opacity: 0.7;
 }
 
 .forecast h2 {
   font-weight: 600;
   margin: 0.25em 0;
+}
+
+.weather-temp {
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0.8;
 }
 
 .link-github {

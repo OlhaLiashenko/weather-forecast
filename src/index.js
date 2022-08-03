@@ -1,5 +1,5 @@
-function formatDate(timestamp) {
-  let date = new Date(timestamp);
+function formatDate(props) {
+  let date = new Date(props);
   let hours = date.getHours();
 
   if (hours < 10) {
@@ -28,6 +28,28 @@ function formatDate(timestamp) {
 let currentDate = document.querySelector("#date");
 let currentTime = new Date();
 currentDate.innerHTML = formatDate(currentTime);
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class = "row">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">    
+          <h3>${day}</h3>
+          <img class="icon" id="icon" src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+          <div>
+            <span class = "weather-temp">17 °</span>
+            <span class = "weather-temp">22 °</span>
+          </div>   
+      </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+displayForecast();
 
 function displayTemperature(response) {
   document.querySelector("#city").innerHTML = response.data.name;
