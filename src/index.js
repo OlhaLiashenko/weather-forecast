@@ -1,5 +1,5 @@
-function formatDate(props) {
-  let date = new Date(props);
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let hours = date.getHours();
 
   if (hours < 10) {
@@ -12,8 +12,7 @@ function formatDate(props) {
     minutes = `0${minutes}`;
   }
 
-  let currentDay = date.getDay();
-  let dayList = [
+  let days = [
     "Sunday",
     "Monday",
     "Tuesday",
@@ -22,29 +21,41 @@ function formatDate(props) {
     "Friday",
     "Saturday",
   ];
-  let day = dayList[currentDay];
+  let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
-let currentDate = document.querySelector("#date");
-let currentTime = new Date();
-currentDate.innerHTML = formatDate(currentTime);
 
-function displayForecast() {
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDate();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class = "row">`;
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="col-2">    
-          <h3>${day}</h3>
-          <img class="icon" id="icon" src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+          <h3>${formatDay(forecastDay.dt)}</h3>          
+          <img class="icon" id="icon" src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png" alt="${forecastDay.weather[0].description}"/>
           <div>
-            <span class = "weather-temp">17 °</span>
-            <span class = "weather-temp">22 °</span>
+            <span class = "weather-temp">${Math.round(
+              forecastDay.temp.max
+            )}°</span>
+            <span class = "weather-temp">${Math.round(
+              forecastDay.temp.min
+            )}°</span>
           </div>   
       </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -73,6 +84,9 @@ function displayTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  let dateElement = document.querySelector("#date");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
   getForecast(response.data.coord);
 }
 
