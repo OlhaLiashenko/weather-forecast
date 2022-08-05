@@ -27,7 +27,7 @@ function formatDate(timestamp) {
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
-  let day = date.getDate();
+  let day = date.getDay();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
 }
@@ -45,7 +45,7 @@ function displayForecast(response) {
           <h3>${formatDay(forecastDay.dt)}</h3>          
           <img class="icon" id="icon" src="http://openweathermap.org/img/wn/${
             forecastDay.weather[0].icon
-          }@2x.png" alt="${forecastDay.weather[0].description}"/>
+          }@2x.png" alt=""/>
           <div>
             <span class = "weather-temp">${Math.round(
               forecastDay.temp.max
